@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         final EditText et = (EditText)findViewById(R.id.editText);
-        et.setText("aaaaaaaaaaaaaaaaaaaa");
+        et.setText("双鱼座");
 
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
