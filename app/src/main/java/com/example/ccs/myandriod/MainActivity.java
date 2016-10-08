@@ -10,12 +10,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.ccs.compute.ZodiacTool;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +49,23 @@ public class MainActivity extends AppCompatActivity {
         final EditText et = (EditText)findViewById(R.id.editText);
         et.setText("双鱼座");
 
+        final DatePicker dp = (DatePicker)findViewById(R.id.datePicker);
+
+        final Button btn = (Button)findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                Integer i = random.nextInt();
+                int y = dp.getYear();
+                int m = dp.getMonth();
+                int d = dp.getDayOfMonth();
+
+
+
+                et.setText(ZodiacTool.getConstellation(m+1,d+1));
+            }
+        });
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
