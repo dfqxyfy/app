@@ -24,4 +24,8 @@ public class ZodiacTool {
         return day < dayArr[month - 1] ? constellationArr[month - 1]
                 : constellationArr[month];
     }
+
+    public static Integer getStar(int month,int day){
+        return day <dayArr[month-1]?month-1:month;
+    }
 }

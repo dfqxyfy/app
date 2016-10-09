@@ -15,6 +15,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.ccs.compute.CommStar;
+import com.ccs.compute.LauarTool;
 import com.ccs.compute.ZodiacTool;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -47,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         final EditText et = (EditText)findViewById(R.id.editText);
-        et.setText("双鱼座");
+        final EditText lauarText = (EditText)findViewById(R.id.lauarText);
 
         final DatePicker dp = (DatePicker)findViewById(R.id.datePicker);
-
         final Button btn = (Button)findViewById(R.id.button);
+        final Button detaiBtn = (Button)findViewById(R.id.detail);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,9 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 int m = dp.getMonth();
                 int d = dp.getDayOfMonth();
 
-
-
                 et.setText(ZodiacTool.getConstellation(m+1,d+1));
+                CommStar.star = ZodiacTool.getStar(m+1,d+1);
+                lauarText.setText(LauarTool.getLunar(y+"",(m+1)+"",(d+1)+""));
+
+                detaiBtn.setBackgroundResource(choosePic(CommStar.star));
+                //detaiBtn.setBackground(getResources().getDrawable(R.drawable.common_full_open_on_phone,null));//"@mipmap/12stars_00"+s
             }
         });
 
@@ -130,5 +135,29 @@ public class MainActivity extends AppCompatActivity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+
+    private int choosePic(Integer star){
+        switch (star){
+            case 0:
+                return R.mipmap.stars_0001;
+            case 1:
+                return R.mipmap.stars_0002;
+            case 2:
+                return R.mipmap.stars_0003;
+            case 3:
+                return R.mipmap.stars_0004;case 4:
+                return R.mipmap.stars_0005;case 5:
+                return R.mipmap.stars_0006;case 6:
+                return R.mipmap.stars_0007;
+            case 8:
+                return R.mipmap.stars_0009;case 9:
+                return R.mipmap.stars_0010;case 10:
+                return R.mipmap.stars_0011;case 11:
+                return R.mipmap.stars_0012;
+            case 12:
+                return R.mipmap.stars_0001;
+        }
+        return 0;
     }
 }
