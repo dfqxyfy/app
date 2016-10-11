@@ -1,5 +1,6 @@
 package com.example.ccs.myandriod;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -69,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
                 detaiBtn.setBackgroundResource(choosePic(CommStar.star));
                 //detaiBtn.setBackground(getResources().getDrawable(R.drawable.common_full_open_on_phone,null));//"@mipmap/12stars_00"+s
+            }
+        });
+        final Intent intent=new Intent(this,StarDetailActivity.class);
+        detaiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
             }
         });
 
