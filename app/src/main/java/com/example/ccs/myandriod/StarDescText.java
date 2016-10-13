@@ -1,6 +1,7 @@
 package com.example.ccs.myandriod;
 
 import android.content.Context;
+import android.text.Html;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -15,9 +16,16 @@ public class StarDescText extends EditText{
     public StarDescText(Context context) {
         super(context);
     }
+    public StarDescText(Context context,String type,String desc) {
+        super(context);
+        this.type = type;
+        this.desc = desc;
+        this.init();
+    }
 
     public void init(){
-        this.setText(type+" "+desc);
+
+        this.setText(Html.fromHtml(type+":"+"<font color='#FF0000'>"+desc+"</font>"));
     }
 
     public String getType() {
