@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         final EditText et = (EditText) findViewById(R.id.editText);
-        final EditText lauarText = (EditText) findViewById(R.id.lauarText);
+        //final EditText lauarText = (EditText) findViewById(R.id.lauarText);
 
         final DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
         final Button btn = (Button) findViewById(R.id.button);
@@ -64,12 +64,14 @@ public class MainActivity extends AppCompatActivity {
 
                 et.setText(ZodiacTool.getConstellation(m + 1, d + 1));
                 CommStar.star = ZodiacTool.getStar(m + 1, d + 1);
-                lauarText.setText(LauarTool.getLunar(y + "", (m + 1) + "", (d + 1) + ""));
+                //lauarText.setText(LauarTool.getLunar(y + "", (m + 1) + "", (d + 1) + ""));
 
                 detaiBtn.setBackgroundResource(choosePic(CommStar.star));
                 //detaiBtn.setBackground(getResources().getDrawable(R.drawable.common_full_open_on_phone,null));//"@mipmap/12stars_00"+s
             }
         });
+
+
         final Intent intent=new Intent(this,StarDetailActivity.class);
         detaiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
