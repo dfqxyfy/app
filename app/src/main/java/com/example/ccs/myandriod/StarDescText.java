@@ -2,14 +2,13 @@ package com.example.ccs.myandriod;
 
 import android.content.Context;
 import android.text.Html;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by ccs on 2016/10/12.
  */
 
-public class StarDescText extends EditText{
+public class StarDescText extends TextView {
 
     private String type;
     private String desc;

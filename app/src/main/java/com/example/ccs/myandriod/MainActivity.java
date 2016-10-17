@@ -58,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random random = new Random();
-                Integer i = random.nextInt();
                 int y = dp.getYear();
                 int m = dp.getMonth();
                 int d = dp.getDayOfMonth();

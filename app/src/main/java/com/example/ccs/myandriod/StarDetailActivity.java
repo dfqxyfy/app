@@ -7,6 +7,7 @@ import android.text.Layout;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.ccs.compute.CommStar;
 
@@ -22,15 +23,15 @@ public class StarDetailActivity extends AppCompatActivity {
         setContentView(R.layout.star_detail_main);
 
         final GridLayout layout = (GridLayout)findViewById(R.id.ccsgridLayout);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.detailText);
+        //final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.detailText);
         for(int i = 0 ;i< CommStar.getLsDetail().size();i++){
             StarDescText sdt = new StarDescText(this,CommStar.getLsDetail().get(i).getType(),CommStar.getLsDetail().get(i).getDes());
             layout.addView(sdt);
 
         }
-        final EditText et = (EditText)findViewById(R.id.editText3);
-        et.setText("aaaaaaaaaaaaaa");
-
+        final TextView et = (TextView)findViewById(R.id.starDetail);
+        et.setSingleLine(false);
+        et.setText("\t\t\t\t白羊座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热情、阳光、乐观、坚强，对朋友也慷概大方，性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象。");
     }
 
     @Override
