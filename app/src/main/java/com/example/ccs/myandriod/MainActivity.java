@@ -1,12 +1,15 @@
 package com.example.ccs.myandriod;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.ExpandedMenuView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -55,16 +58,40 @@ public class MainActivity extends AppCompatActivity {
 
         final Button btn = (Button) findViewById(R.id.button);
         final Button detaiBtn = (Button) findViewById(R.id.detail);
+        final String[] stars = {"双鱼座","金牛座"};
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 detaiBtn.setBackgroundResource(choosePic(CommStar.star));
+
+                //AlertDialog ad = new AlertDialog.Builder(MainActivity.this);
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this).setTitle("选择星座");
+//
+//                builder.setItems(stars, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                    }
+//                });
+//                builder.show();
+                Intent intent = new Intent(getMain(),SelStarActivity.class);
+                startActivity(intent);
+                if(true)
+                    return;
+                startService(intent);
+
+                try{
+                    Thread.sleep(1000);
+                }catch (Exception e){
+
+                }
+
+                stopService(intent);
             }
         });
 
 
-        final Intent intent=new Intent(this,StarDetailActivity.class);
         detaiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
