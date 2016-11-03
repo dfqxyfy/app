@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.ExpandedMenuView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,19 +76,29 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 //                builder.show();
-                Intent intent = new Intent(getMain(),SelStarActivity.class);
-                startActivity(intent);
-                if(true)
-                    return;
-                startService(intent);
-
-                try{
-                    Thread.sleep(1000);
-                }catch (Exception e){
-
+                //Intent intent = new Intent(getMain(),SelStarActivity.class);
+                Intent intent = new Intent(getApplicationContext(),SelStarActivity.class);
+                Log.v("v debug","test");
+                Log.e("e debug","test");
+                Log.d("d debug","test");
+                try {
+                    //startService(intent);
+                    //startActivity(intent);
+                    startActivityForResult(intent,0);
+                }catch (Throwable e){
+                    Log.e("e debug","test",e);
                 }
-
-                stopService(intent);
+//                if(true)
+//                    return;
+//                startService(intent);
+//
+//                try{
+//                    Thread.sleep(1000);
+//                }catch (Exception e){
+//
+//                }
+//
+//                stopService(intent);
             }
         });
 

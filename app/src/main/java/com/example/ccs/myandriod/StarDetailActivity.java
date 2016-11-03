@@ -22,6 +22,8 @@ public class StarDetailActivity extends AppCompatActivity {
         super.onStart();
         setContentView(R.layout.star_detail_main);
 
+        if(true)
+            return;
         final GridLayout layout = (GridLayout)findViewById(R.id.ccsgridLayout);
         //final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.detailText);
         for(int i = 0 ;i< CommStar.getLsDetail().size();i++){

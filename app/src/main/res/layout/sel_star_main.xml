@@ -8,9 +8,9 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
+    android:theme="@android:style/Theme.Dialog"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
-    <!--android:theme="@android:style/Theme.Dialog"-->
 
     <GridLayout
         android:id="@+id/selGridLayout"
