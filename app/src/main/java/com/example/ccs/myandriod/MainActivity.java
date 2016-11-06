@@ -46,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button popBtn = (Button)findViewById(R.id.popBtn);
+        popBtn.setOnClickListener(new  View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,TestDialog.class);
+                Log.e("e debug","test");
+                try {
+                    startActivityForResult(intent, 0);
+                }catch (Throwable e){
+                    Log.e("ttttttteeeeeeee debug","test",e);
+                }
+            }
+        });
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 //                });
 //                builder.show();
                 //Intent intent = new Intent(getMain(),SelStarActivity.class);
-                Intent intent = new Intent(getApplicationContext(),SelStarActivity.class);
+                Intent intent = new Intent(MainActivity.this,SelStarActivity.class);
                 Log.v("v debug","test");
                 Log.e("e debug","test");
                 Log.d("d debug","test");
@@ -86,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     //startActivity(intent);
                     startActivityForResult(intent,0);
                 }catch (Throwable e){
-                    Log.e("e debug","test",e);
+                    Log.e("ttttttteeeeeeee debug","test",e);
                 }
 //                if(true)
 //                    return;
@@ -101,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 //                stopService(intent);
             }
         });
+
 
 
         detaiBtn.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     private final MainActivity getMain(){

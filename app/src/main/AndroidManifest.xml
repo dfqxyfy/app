@@ -19,10 +19,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".StarDetailActivity" android:label="星座详情">
+        <activity android:name=".StarDetailActivity" android:label="星座详情"></activity>
+        <activity android:name=".SelStarActivity" android:label="选择星座详情a"  android:theme="@android:style/Theme.Dialog"></activity>
+        <activity android:name=".TestDialog"  android:label="Activity变sDialog"  android:theme="@android:style/Theme.Dialog"
+            ></activity>
 
-        </activity>
-        <activity android:name=".SelStarActivity" android:label="选择星座详情"  android:theme="@android:style/Theme.Dialog"></activity>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
