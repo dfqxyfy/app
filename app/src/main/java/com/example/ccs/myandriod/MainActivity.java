@@ -46,22 +46,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button popBtn = (Button)findViewById(R.id.popBtn);
-        popBtn.setOnClickListener(new  View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TestDialog.class);
-                Log.e("e debug","test");
-                try {
-                    startActivityForResult(intent, 0);
-                }catch (Throwable e){
-                    Log.e("ttttttteeeeeeee debug","test",e);
-                }
-            }
-        });
-
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

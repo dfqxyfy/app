@@ -82,7 +82,7 @@ public enum Stars {
 
     }
 
-    private static Stars getStarByNum(Integer num){
+    public static Stars getStarByNum(Integer num){
         if(num>12||num<1)
             return Stars.BAIYANG_STAR;
         Stars[] starses = Stars.values();
