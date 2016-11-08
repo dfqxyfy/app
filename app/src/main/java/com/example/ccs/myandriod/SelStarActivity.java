@@ -27,11 +27,24 @@ public class SelStarActivity extends Activity {
         for(int i = 0;i<12;i++){
             LinearLayout cellLayout=new LinearLayout(this);
             cellLayout.setHorizontalGravity(LinearLayout.VERTICAL);
+            cellLayout.setTag(i);
+
+            cellLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(SelStarActivity.this, MainActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("str", v.getTag().toString());
+                    intent.putExtras(b);
+                    SelStarActivity.this.setResult(RESULT_OK, intent);
+                    SelStarActivity.this.finish();
+                }
+            });
 
             LinearLayout icoLayout=new LinearLayout(this);
-            Button icoBtn = new Button(this);
-            icoBtn.setBackgroundResource(Stars.getStarByNum(i+1).getPic());
-            icoLayout.addView(icoBtn);
+            TextView icoText = new TextView(this);
+            icoText.setBackgroundResource(Stars.getStarByNum(i+1).getPic());
+            icoLayout.addView(icoText);
 
             LinearLayout descLayout=new LinearLayout(this);
             //descLayout.setHorizontalGravity(LinearLayout.VERTICAL);
