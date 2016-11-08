@@ -27,7 +27,7 @@ public class SelStarActivity extends Activity {
         for(int i = 0;i<12;i++){
             LinearLayout cellLayout=new LinearLayout(this);
             cellLayout.setHorizontalGravity(LinearLayout.VERTICAL);
-            cellLayout.setTag(i);
+            cellLayout.setTag(i+1);
 
             cellLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -35,6 +35,7 @@ public class SelStarActivity extends Activity {
                     Intent intent = new Intent(SelStarActivity.this, MainActivity.class);
                     Bundle b = new Bundle();
                     b.putString("str", v.getTag().toString());
+                    Log.e("str",v.getTag().toString());
                     intent.putExtras(b);
                     SelStarActivity.this.setResult(RESULT_OK, intent);
                     SelStarActivity.this.finish();
