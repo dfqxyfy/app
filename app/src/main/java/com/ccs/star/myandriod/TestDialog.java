@@ -1,4 +1,4 @@
-package com.example.ccs.myandriod;
+package com.ccs.star.myandriod;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.ccs.myandriod.R;
 
 /**
  * Created by ccs on 2016/11/6.

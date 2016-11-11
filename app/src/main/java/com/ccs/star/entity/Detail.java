@@ -1,4 +1,4 @@
-package com.example.ccs.entity;
+package com.ccs.star.entity;
 
 /**
  * Created by ccs on 2016/10/12.

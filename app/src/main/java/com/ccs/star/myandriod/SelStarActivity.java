@@ -1,19 +1,16 @@
-package com.example.ccs.myandriod;
+package com.ccs.star.myandriod;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.ccs.entity.Stars;
+import com.ccs.star.entity.Stars;
+import com.example.ccs.myandriod.R;
 
 public class SelStarActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {

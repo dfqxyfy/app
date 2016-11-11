@@ -9,7 +9,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.ccs.myandriod.MainActivity"
+    tools:context="com.example.ccs.myandriod.com.ccs.ccs.myandriod.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <GridLayout

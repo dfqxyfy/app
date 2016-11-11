@@ -1,6 +1,6 @@
 package com.ccs.compute;
 
-import com.example.ccs.entity.Detail;
+import com.ccs.star.entity.Detail;
 
 import java.util.ArrayList;
 import java.util.List;

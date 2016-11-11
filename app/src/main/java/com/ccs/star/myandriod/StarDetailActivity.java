@@ -1,15 +1,13 @@
-package com.example.ccs.myandriod;
+package com.ccs.star.myandriod;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
-import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ccs.compute.CommStar;
+import com.example.ccs.myandriod.R;
 
 /**
  * Created by ccs on 2016/10/10.

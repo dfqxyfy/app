@@ -1,4 +1,4 @@
-package com.example.ccs.myandriod;
+package com.ccs.star.myandriod;
 
 import android.content.Context;
 import android.text.Html;

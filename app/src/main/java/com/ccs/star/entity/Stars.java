@@ -1,10 +1,7 @@
-package com.example.ccs.entity;
+package com.ccs.star.entity;
 
 import com.example.ccs.myandriod.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
