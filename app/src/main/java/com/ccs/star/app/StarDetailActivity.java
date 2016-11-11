@@ -1,4 +1,4 @@
-package com.ccs.star.myandriod;
+package com.ccs.star.app;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

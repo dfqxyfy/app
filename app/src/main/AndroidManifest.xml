@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.ccs.star.myandriod.MainActivity"
+            android:name="com.ccs.star.app.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.ccs.star.myandriod.StarDetailActivity" android:label="星座详情"></activity>
-        <activity android:name="com.ccs.star.myandriod.SelStarActivity" android:label="选择星座详情a"  android:theme="@android:style/Theme.Dialog"></activity>
-        <activity android:name="com.ccs.star.myandriod.TestDialog"  android:label="Activity变sDialog"  android:theme="@android:style/Theme.Dialog"
+        <activity android:name="com.ccs.star.app.StarDetailActivity" android:label="星座详情"></activity>
+        <activity android:name="com.ccs.star.app.SelStarActivity" android:label="选择星座详情a"  android:theme="@android:style/Theme.Dialog"></activity>
+        <activity android:name="com.ccs.star.app.TestDialog"  android:label="Activity变sDialog"  android:theme="@android:style/Theme.Dialog"
             ></activity>
 
         <meta-data
