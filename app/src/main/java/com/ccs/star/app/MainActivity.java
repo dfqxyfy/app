@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.ccs.star.entity.Star;
@@ -86,10 +89,44 @@ public class MainActivity extends AppCompatActivity {
         Log.e("eee",str);
         detaiBtn.setBackgroundResource(Stars.getStarByNum(Integer.valueOf(str)).getPic());
         try {
-            new initDetailThread(this,Integer.valueOf(str)).start();            //init(Integer.valueOf(str));
+            initMethod(this,Integer.valueOf(str));
         }catch (Exception e){
             Log.e("错误","msg",e);
         }
+    }
+
+    private void initMethod(final Context context,final Integer num) {
+        final Handler handler = new Handler() {
+            public void handleMessage(Message msg) {
+                Log.v("vvvvvvvvvvvvvv:", msg.obj + "");
+                String result = String.valueOf(msg.obj);
+                if(msg.obj == null)
+                    return;
+                Star star = JSON.parseObject(result, Star.class);
+                final GridLayout layout = (GridLayout) findViewById(R.id.ccsgridLayout);
+                layout.removeAllViews();
+                for (int i = 0; i < star.getStarDetail().size(); i++) {
+                    StarDescText sdt = new StarDescText(context,star.getStarDetail().get(i).getAttr(), star.getStarDetail().get(i).getDesc());
+                    layout.addView(sdt);
+                }
+            }
+        };
+        new Thread() {
+            public void run() {
+                Message msg =new Message();
+                try {
+
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("num",num);
+                    String infoo = HttpClient.post("http://192.168.1.106:8080/star/findStar",map);
+                    msg.obj = infoo;
+                } catch (Exception e) {
+                    Log.e("","",e);
+                }
+                handler.sendMessage(msg);
+
+            }
+        }.start();
     }
 
     private  class initDetailThread extends Thread{
@@ -102,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             Map<String, Object> map = new HashMap<>();
             map.put("num", num);
-            String result = HttpClient.get("http://localhost:8080/star/findStar", map);
+            String result = HttpClient.get("http://192.168.1.106:8080/star/findStar", map);
             Log.v("vvvvvvvvvvvvvv:", result + "");
 
             if(result == null)
