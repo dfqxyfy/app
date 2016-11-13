@@ -1,6 +1,6 @@
 package com.ccs.star.entity;
 
-import com.example.ccs.myandriod.R;
+import com.ccs.star.app.R;
 
 import java.util.Date;
 

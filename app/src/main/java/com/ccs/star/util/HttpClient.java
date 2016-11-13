@@ -1,5 +1,7 @@
 package com.ccs.star.util;
 
+import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -43,7 +45,7 @@ public class HttpClient {
             }
             return strb.toString();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("error","exception",e);
         }
         return null;
     }
@@ -75,7 +77,7 @@ public class HttpClient {
             }
             return strb.toString();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("error","exception",e);
         } finally {
             //6.释放资源
             if (conn != null) {
@@ -102,11 +104,11 @@ public class HttpClient {
                             urlBuffer.append("?");
                             flag = true;
                         }
-                        urlBuffer.append(key).append("=").append(URLEncoder.encode((String) params.get(key), "UTF-8"));
+                        urlBuffer.append(key).append("=").append(URLEncoder.encode(String.valueOf( params.get(key)), "UTF-8"));
                     }
                 }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("error","exception",e);
         }
         return urlBuffer.toString();
     }
@@ -131,14 +133,5 @@ public class HttpClient {
         return urlBuffer.toString();
     }
 
-    public static void main(String[] args) {
 
-        String url = "https://www.baidu.com/s";
-        Map<String,Object> map = new HashMap<>();
-        map.put("wd","a");
-        //String s = get(url,map);
-        String s = post(url,map);
-        System.out.println(s);
-       // post();
-    }
 }

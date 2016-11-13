@@ -1,5 +1,7 @@
 package com.ccs.star.app;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,12 +14,22 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.GridLayout;
 
+import com.alibaba.fastjson.JSON;
+import com.ccs.star.entity.Star;
 import com.ccs.star.entity.Stars;
-import com.example.ccs.myandriod.R;
+import com.ccs.star.util.HttpClient;
+import com.ccs.star.app.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,6 +85,35 @@ public class MainActivity extends AppCompatActivity {
         detaiBtn.setText("");
         Log.e("eee",str);
         detaiBtn.setBackgroundResource(Stars.getStarByNum(Integer.valueOf(str)).getPic());
+        try {
+            new initDetailThread(this,Integer.valueOf(str)).start();            //init(Integer.valueOf(str));
+        }catch (Exception e){
+            Log.e("错误","msg",e);
+        }
+    }
+
+    private  class initDetailThread extends Thread{
+        private Integer num;
+        private Context context;
+        public initDetailThread(Context context,Integer num){
+            this.num = num;
+            this.context = context;
+        }
+        public void run() {
+            Map<String, Object> map = new HashMap<>();
+            map.put("num", num);
+            String result = HttpClient.get("http://localhost:8080/star/findStar", map);
+            Log.v("vvvvvvvvvvvvvv:", result + "");
+
+            if(result == null)
+                return;
+            Star star = JSON.parseObject(result, Star.class);
+            final GridLayout layout = (GridLayout) findViewById(R.id.ccsgridLayout);
+            for (int i = 0; i < star.getStarDetail().size(); i++) {
+                StarDescText sdt = new StarDescText(context,star.getStarDetail().get(i).getAttr(), star.getStarDetail().get(i).getDesc());
+                layout.addView(sdt);
+            }
+        }
     }
 
     @Override
@@ -101,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 Action.TYPE_VIEW, // TODO: choose an action type.
                 "Main Page",
                 Uri.parse("http://host/path"),
-                Uri.parse("android-app://com.example.ccs.myandriod/http/host/path")
+                Uri.parse("android-app://com.ccs.star.app/http/host/path")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
     }
@@ -120,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.example.ccs.myandriod/http/host/path")
+                Uri.parse("android-app://com.ccs.star.app/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();

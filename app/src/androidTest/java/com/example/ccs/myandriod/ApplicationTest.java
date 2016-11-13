@@ -1,4 +1,4 @@
-package com.example.ccs.myandriod;
+package com.example.ccs.myandroid;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ccs.star.entity.Stars;
-import com.example.ccs.myandriod.R;
+import com.ccs.star.app.R;
 
 public class SelStarActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {

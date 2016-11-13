@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.3"
 
     defaultConfig {
-        applicationId "com.example.ccs.myandriod"
+        applicationId "com.ccs.star.app"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
@@ -20,9 +20,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile files('src/main/libs/fastjson-1.2.4.jar')
 }

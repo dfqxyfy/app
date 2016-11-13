@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.ccs.myandriod.R;
+import com.ccs.star.app.R;
 
 /**
  * Created by ccs on 2016/11/6.

@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.ccs.myandriod.com.ccs.ccs.myandriod.StarDetailActivity"
+    tools:context="com.ccs.star.app.com.ccs.ccs.myandriod.StarDetailActivity"
     >
 
         <GridLayout  xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,7 +28,7 @@
             android:columnCount="2"
             android:id="@+id/ccsgridLayout2"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context="com.example.ccs.myandriod.com.ccs.ccs.myandriod.StarDetailActivity"
+            tools:context="com.ccs.star.app.com.ccs.ccs.myandriod.StarDetailActivity"
             >
         </GridLayout>
 
